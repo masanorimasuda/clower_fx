@@ -1,0 +1,7 @@
+---
+Pre:
+  :host:      localhost
+  :user:      root
+  :password:  makurisan
+  :dbname:    FX
+  :socket: /var/lib/mysql/mysql.sock
