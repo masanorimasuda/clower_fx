@@ -1,3 +1,5 @@
 chart/log.txt
 news/log_after.txt
 news/log_before.txt
+config/*
+!.gitkeep
