@@ -17,8 +17,12 @@ class Newsbefore
 # ----------------------------------------------------------------
 # 出力ディレクトリ(csvファイル/住所テンプレート)
 # ----------------------------------------------------------------
-  @@this_file = File.dirname(__FILE__) + '/'
-  @@path_output = '/var/www/html/FX/img/'
+	@@this_file = File.dirname(__FILE__) + '/'
+
+	if File.exist?(@@tthis_file + "../config/path.yaml")
+		ret = YAML.load_file(@@tthis_file + "../config/path.yaml")
+	end
+	@@path_output = ret['Pre'][:img]
 
 # ----------------------------------------------------------------
 # 初期化
