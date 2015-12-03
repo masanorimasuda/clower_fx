@@ -1,14 +1,12 @@
 #! ruby -Ku
 
-
 require "yaml"
-
-
 # Mysql用ライブラリ
 require "mysql"
 
 
-# ==============================================================================# DB class(MySQL)
+# ==============================================================================
+# # DB class(MySQL)
 # ==============================================================================
 class DB
 	def initialize
@@ -34,7 +32,6 @@ class DB
 
 	# class名
 	@@file_name = "DB"
-	
 # ----------------------------------------------------------------
 # MYSQLデータベース接続
 # ----------------------------------------------------------------
@@ -42,7 +39,6 @@ class DB
 		if @mysql_connect_flg == 0 then
 			#初期化
 			@my = Mysql.init()
-			
 			#文字コードの設定
 			@my.options(Mysql::SET_CHARSET_NAME, "utf8")
 			begin
@@ -79,7 +75,6 @@ class DB
 			# SQL文出力
 			sql = "INSERT INTO " + @table_name + " (start,end,compare,lowest,highest,currency,date) VALUES ("
 			sql = sql + array[0] + "," + array[1] + "," + array[2] + "," + array[3] + "," + array[4] + ",'" + array[5] + "','" + array[6] + "');"
-			
 			#SQL文発行実行
 			@my.query(sql)
 
@@ -99,16 +94,14 @@ class DB
 
 			#p array
 			# SQL文出力
-			sql = "INSERT INTO news_before (textdate,currency,attention_rate,title,before_value,forecast,result,date) VALUES ('"
+			sql = "INSERT INTO news_befores (textdate,currency,attention_rate,title,before_value,forecast,result,date) VALUES ('"
 			sql = sql + array[0] + "','" + array[1] + "','" + array[2] + "','" + array[3] + "','','','','" + array[4] + "');"
-			
 			#SQL文発行実行
 			@my.query(sql)
 
 		rescue => e
 			p e
 		end
-
 	end
 
 
@@ -123,17 +116,13 @@ class DB
 
 			#p array
 			# SQL文出力
-			sql = "UPDATE news_before SET before_value = '"+ array[4] + "',forecast = '" + array[5] + "',result = '" + array[6] + "' WHERE (textdate = '" + array[0] + "' AND currency = '" + array[1] + "' AND attention_rate = '" + array[2] + "' AND title = '" + array[3] + "');"
-			
+			sql = "UPDATE news_befores SET before_value = '"+ array[4] + "',forecast = '" + array[5] + "',result = '" + array[6] + "' WHERE (textdate = '" + array[0] + "' AND currency = '" + array[1] + "' AND attention_rate = '" + array[2] + "' AND title = '" + array[3] + "');"
 			#SQL文発行実行
 			@my.query(sql)
 
 		rescue => e
 			p e
 		end
-
 	end
-
-
 end
 
