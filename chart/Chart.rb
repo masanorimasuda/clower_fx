@@ -19,8 +19,8 @@ class Chart
 # ----------------------------------------------------------------
 	@@this_file = File.dirname(__FILE__) + '/'
 
-	if File.exist?(@@tthis_file + "../config/path.yaml")
-		ret = YAML.load_file(@@tthis_file + "../config/path.yaml")
+	if File.exist?(@@this_file + "../config/path.yaml")
+		ret = YAML.load_file(@@this_file + "../config/path.yaml")
 	end
 
 	@@path_output = ret['Pre'][:img]
